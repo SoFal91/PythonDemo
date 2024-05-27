@@ -8,16 +8,14 @@ jobs:
     name: codacy-coverage-reporter
     steps:
       - uses: actions/checkout@v2
-      - name: Run codacy-coverage-reporter
-        uses: codacy/codacy-coverage-reporter-action@v1
-        with:
-          project-token: secrets.887556e2b289447dbb940a281210aee8
-          # or
-          # api-token: NylzI97w27BF7Y8A76dv
       - name: Set UTF-8 Encoding
         run: |
           export LANG=C.UTF-8
           export LC_ALL=C.UTF-8
-          coverage-reports: .coverage
+      - name: Run codacy-coverage-reporter
+        uses: codacy/codacy-coverage-reporter-action@v1
+        with:
+          project-token: 887556e2b289447dbb940a281210aee8
+          coverage-reports: .coverage  # Specify the coverage report file explicitly
           # or a comma-separated list for multiple reports
-          # coverage-reports: .coverage
+          # coverage-reports: .coverage,other_report.xml
