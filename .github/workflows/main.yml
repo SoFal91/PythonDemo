@@ -17,20 +17,21 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.12
+        python-version: 3.8  # Adjust Python version if needed
 
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install -r requirements.txt  # Adjust requirements file if needed
 
     - name: Run Tests with Coverage
       run: |
-        coverage run -m pytest
+        coverage run --source=calculator -m pytest
         coverage xml
 
     - name: Upload Coverage Report to Codacy
       uses: codacy/codacy-coverage-action@3.0.1
       with:
-        project-token: ${{ 887556e2b289447dbb940a281210aee8 }}
-        coverage-report: coverage.xml
+        project-token: ${{887556e2b289447dbb940a281210aee8}}
+        data-destination: codacy-coverage-reporter-xml-processor
+        coverage-report-file: coverage.xml
