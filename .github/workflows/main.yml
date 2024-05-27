@@ -14,6 +14,6 @@ jobs:
           project-token: secrets.887556e2b289447dbb940a281210aee8
           # or
           # api-token: NylzI97w27BF7Y8A76dv
-          coverage-reports: E:\Pytprojc\coverage_demo\PythonDemo
+          coverage-reports: .coverage
           # or a comma-separated list for multiple reports
-          # coverage-reports: E:\Pytprojc\coverage_demo\PythonDemo
+          # coverage-reports: .coverage
