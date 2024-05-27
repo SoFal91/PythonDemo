@@ -14,6 +14,10 @@ jobs:
           project-token: secrets.887556e2b289447dbb940a281210aee8
           # or
           # api-token: NylzI97w27BF7Y8A76dv
+      - name: Set UTF-8 Encoding
+        run: |
+          export LANG=C.UTF-8
+          export LC_ALL=C.UTF-8
           coverage-reports: .coverage
           # or a comma-separated list for multiple reports
           # coverage-reports: .coverage
