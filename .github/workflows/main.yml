@@ -32,6 +32,5 @@ jobs:
     - name: Upload Coverage Report to Codacy
       uses: codacy/codacy-coverage-action@3.0.1
       with:
-        project-token: ${{887556e2b289447dbb940a281210aee8}}
-        data-destination: codacy-coverage-reporter-xml-processor
+        project-token: 887556e2b289447dbb940a281210aee8
         coverage-report-file: coverage.xml
