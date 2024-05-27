@@ -1,36 +1,19 @@
-name: Code Coverage
+name: Codacy Coverage Reporter
 
-on:
-  push:
-    branches:
-      - main  # Adjust branch name if needed
+on: ["push"]
 
 jobs:
-  test:
-    name: Run Tests
+  codacy-coverage-reporter:
     runs-on: ubuntu-latest
-
+    name: codacy-coverage-reporter
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
-
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.8  # Adjust Python version if needed
-
-    - name: Install Dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt  # Adjust requirements file if needed
-
-    - name: Run Tests with Coverage
-      run: |
-        coverage run --source=calculator -m pytest
-        coverage xml
-
-    - name: Upload Coverage Report to Codacy
-      uses: codacy/codacy-coverage-action@3.0.1
-      with:
-        project-token: 887556e2b289447dbb940a281210aee8
-        coverage-report-file: coverage.xml
+      - uses: actions/checkout@v2
+      - name: Run codacy-coverage-reporter
+        uses: codacy/codacy-coverage-reporter-action@v1
+        with:
+          project-token: ${{ secrets.887556e2b289447dbb940a281210aee8 }}
+          # or
+          # api-token: ${{ secrets.NylzI97w27BF7Y8A76dv }}
+          coverage-reports: <PATH_TO_REPORT>
+          # or a comma-separated list for multiple reports
+          # coverage-reports: ./coverage.xml
